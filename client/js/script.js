@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
      
      $("#miaform").submit(function(event){
@@ -11,12 +12,10 @@ $(document).ready(function(){
            cognome:cognome,
            sesso:sesso,
            età: età
-       };
-       console.log(nome);
-       console.log(cognome);
-       console.log(età);
-       console.log(sesso);
-       console.log(nuovo);
-     });
+       }
+       Users.creaUtente(nuovo);
+       this.reset(); // pulisci la form dopo aver premuto il tasto 
+
+    });
 
 });

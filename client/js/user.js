@@ -1,11 +1,14 @@
 var Users = (function(){
-    var creaUtente = function(){
+    var creaUtente = function(nuovo){
         return $.ajax({
             url:"http://localhost:3000/users",
             method:"post",
-            data: data
-        }).then(function(){
-            console.log(risp)
+            contentType:"application/json",
+            dataType:"json",
+            data: JSON.stringify(nuovo),
+        
+             }).then(function(risp){
+                 console.log(risp)
             
              }) .catch(function(err){
                 console.log(err);
