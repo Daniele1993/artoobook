@@ -3,8 +3,16 @@ var User = require('./users.model.js');
 
 module.exports = (function(){
     var getUsers = function(req,res){
-        res.send('lista utenti');
+        User.find()
+            .exec()
+            .then(function(data){
+                res.status(200).json(data);
+            })
+            .catch(function(err){
+                res.status(500).send(err);
+            });
     };
+
     
     var createUser = function(req,res){
         var utente = req.body;
@@ -15,7 +23,6 @@ module.exports = (function(){
             res.status(500).send(err);
         });
         
-
     };
 
     var detailUser = function(req,res){
