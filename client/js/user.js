@@ -15,7 +15,18 @@ var Users = (function(){
             });
        
     }
-        return{
-            creaUtente: creaUtente
+        var getUsers = function(){
+            return $.ajax({
+                url:"http://localhost:3000/users",
+                method:"GET",
+                contentType:"application/json",
+                 dataType:"json",
+            });
         }
+        
+        
+        return{ // questo va sempre alla fine
+            creaUtente: creaUtente,
+            getUsers : getUsers
+        };
 })();
