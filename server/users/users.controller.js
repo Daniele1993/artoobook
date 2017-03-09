@@ -17,9 +17,11 @@ module.exports = (function(){
     var createUser = function(req,res){
         var utente = req.body;
         var newUtente = new User(utente);
-        newUtente.save().then(function(data){
-            res.status(200).send(data);
-        }).catch(function(err){
+        newUtente.save()
+                .then(function(data){
+            res .status(200).send(data);
+        })     
+                 .catch(function(err){
             res.status(500).send(err);
         });
         
@@ -39,12 +41,26 @@ module.exports = (function(){
 
     var deleteUser = function(req,res){
         var id = req.params.id;
-        res.send('eliminazione utente con id'+id);
+        User.findByIdAndRemove(id)
+            .exec()
+            .then(function(data){
+                res.status(200).json(data);
+            }) 
+            .catch(function(err){
+                res.status(500).send(err);
+            })
     };
 
     var updateUser = function(req,res){
         var id = req.params.id;
-        res.send('aggiornamento utente con id'+id);
+        var newData = req.body;
+        User.findByIdAndUpdate(id,newData)
+            .then(function(data){
+                res.status(200).json(data);
+            })
+            .catch(function(err){
+                res.status(500).send(err);
+            })
     };
     
     return{
