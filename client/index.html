@@ -11,8 +11,38 @@
 </head>
 
 <body>
+    
     <h1>ArtooBook </h1>
-    <button type="button" class="btn btn-primary">aggiungi utente</button>
+    <form id="miaform">
+ 
+ <div class="container">
+  
+  <div class="form-group">
+     <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" placeholder="Nome">
+</div>
+
+<div class="form-group">
+     <label for="cognome">Cognome</label>
+    <input type="text" class="form-control" id="cognome" placeholder="Cognome">
+</div>
+
+<div class="form-group">
+     <label for="cognome">Età</label>
+    <input type="number" class="form-control" id="cognome" placeholder="Età">
+</div>
+ 
+  <div> 
+   <label for="nome">Sesso</label>
+   <select>
+       <option value="Male">Maschio</option>
+       <option value="Female">Femmina</option>
+    </select>
+  </div>
+  
+  </div>
+  </form>
+    <button type="button" class="btn btn-primary" id"crea">Crea utente</button>
     <button type="button" class="btn btn-primary">elimina utente</button>
     
 </body>

@@ -19,7 +19,7 @@ module.exports = (function(){
         var newUtente = new User(utente);
         newUtente.save()
                 .then(function(data){
-            res .status(200).send(data);
+            res.status(200).json(data);
         })     
                  .catch(function(err){
             res.status(500).send(err);
