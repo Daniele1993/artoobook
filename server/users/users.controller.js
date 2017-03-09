@@ -23,7 +23,7 @@ module.exports = (function(){
         })     
                  .catch(function(err){
             res.status(500).send(err);
-        });
+        })
         
     };
 
@@ -45,7 +45,7 @@ module.exports = (function(){
             .exec()
             .then(function(data){
                 res.status(200).json(data);
-            }) 
+            })
             .catch(function(err){
                 res.status(500).send(err);
             })
@@ -62,6 +62,23 @@ module.exports = (function(){
                 res.status(500).send(err);
             })
     };
+        var cercaUsers = function(req,res){
+            var cerca =req.query.cerca;
+            User.find({
+                $or:[{"nome":cerca
+            },{
+                "cognome":cerca
+            }]
+        })  .exec()
+            .then(function(data){
+                res.status(200).json(data);
+            })
+            .catch(function(err){
+                res.status(500).send(err);
+            });
+        }
+    
+    
     
     return{
         getUsers : getUsers,
@@ -69,7 +86,8 @@ module.exports = (function(){
         detailUser : detailUser,
         deleteUser : deleteUser,
         updateUser : updateUser,
-    };
+        cercaUsers : cercaUsers
+    }
 })();
 
 
