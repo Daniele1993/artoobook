@@ -4,22 +4,19 @@ var schema = mongoose.Schema;
 var userSchema = new schema({
     nome: {
         type: String,
-        required:[true,'devi inserire il nome']
+        
           },
     cognome: {
         type :String,
-        required:[true,'devi inserire il cognome'],
-        unique: [true,"cognome gia esistente"]
+        
 },
     sesso: {
         type: String,
-        enum:['Male','Female']
+        
     },
-    età: {
+    eta: {
         type: Number,
-        required:true,
-        min:[18,"devi essere maggiorenne"],
-        max:100
+        
     },
 });
 

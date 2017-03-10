@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 var User = require('./users.model.js');
 
 module.exports = (function(){
+   
+        //STAMPA LISTA UTENTI
     var getUsers = function(req,res){
         User.find()
             .exec()
@@ -13,7 +15,7 @@ module.exports = (function(){
             });
     };
 
-    
+    //CREA UTENTE
     var createUser = function(req,res){
         var utente = req.body;
         var newUtente = new User(utente);
@@ -26,7 +28,8 @@ module.exports = (function(){
         })
         
     };
-
+       
+     //DETTAGLIO UTENTE
     var detailUser = function(req,res){
         var id = req.params.id;
         User.findById(id)
@@ -38,7 +41,8 @@ module.exports = (function(){
                 res.status(500).send(err);
             })
     };
-
+    
+    //ELIMINA UTENTE
     var deleteUser = function(req,res){
         var id = req.params.id;
         User.findByIdAndRemove(id)
@@ -51,6 +55,7 @@ module.exports = (function(){
             })
     };
 
+    //MODIFICA/AGGIORNA UTENTE
     var updateUser = function(req,res){
         var id = req.params.id;
         var newData = req.body;
@@ -62,12 +67,15 @@ module.exports = (function(){
                 res.status(500).send(err);
             })
     };
+       
+       //RICERCA PER NOME O COGNOME UTENTE
         var cercaUsers = function(req,res){
-            var cerca =req.query.cerca;
+            var nome = req.query.nome;
+            var cognome = req.query.cognome;
             User.find({
-                $or:[{"nome":cerca
+                $or:[{ nome :nome
             },{
-                "cognome":cerca
+                cognome : cognome
             }]
         })  .exec()
             .then(function(data){
@@ -79,7 +87,7 @@ module.exports = (function(){
         }
     
     
-    
+    //VARIABILI PUBBLICHE CHE CI COLLEGANO ALLE FUNZIONI DI SOPRA
     return{
         getUsers : getUsers,
         createUser : createUser,

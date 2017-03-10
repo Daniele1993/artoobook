@@ -11,55 +11,83 @@
 </head>
 
 <body>
-    
     <h1>ArtooBook </h1>
-    <form id="miaform">
- 
- <div class="container">
-  
-  <div class="form-group">
-     <label for="nome">Nome</label>
-    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
-</div>
-
-<div class="form-group">
-     <label for="cognome">Cognome</label>
-    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome">
-</div>
-
-<div class="form-group">
-     <label for="cognome">Età</label>
-    <input type="number" class="form-control" name="età" id="età" placeholder="Età">
-</div>
- 
-  <div> 
-   <label for="nome">Sesso</label>
-   <select id="sesso">
-       <option value="Male">Maschio</option>
-       <option value="Female">Femmina</option>
-    </select>
-  </div>
-  
-   <button type="submit" class="btn btn-primary">Crea utente</button>
+    <div id="container">
+        <button id= "nuovo" class="btn btn-primary">Nuovo</button>
     
-  </form>
-   
-    <table class="table table-hover">
-        <thead>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Sesso</th>
-            <th>Età</th>
+        <form id="miaform" class="hidden">
+            
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome">
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Età</label>
+                <input type="number" class="form-control" name="eta" id="eta" placeholder="Età">
+            </div>
+ 
+            <div> 
+                <label for="nome">Sesso</label>
+                <select id="sesso">
+                    <option value="Male">Maschio</option>
+                    <option value="Female">Femmina</option>
+                </select>
+            </div>
+  
+            <button type="submit" class="btn btn-primary">Crea utente</button>
+        </form>
+    
+        <form id="aggiornaform" class="hidden">
+  
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome">
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Età</label>
+                <input type="number" class="form-control" name="eta" id="eta" placeholder="Età">
+            </div>
+ 
+            <div> 
+                <label for="nome">Sesso</label>
+                <select id="sesso">
+                    <option value="Male">Maschio</option>
+                    <option value="Female">Femmina</option>
+                </select>
+            </div>
+                <button type="submit" class="btn btn-primary"id="salva">Modifica</button>
+        </form>
+
+            
         
-        </thead>
-        <tbody id="tbody">
+        <table id="tabella" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Sesso</th>
+                    <th>Età</th>
+                    <th><th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
 
-        </tbody>
-    </table>
-  </div>
+            </tbody>
+        </table>
+    </div>
 
- 
-    
 </body>
 
 <script src="jquery/jquery.min.js"></script>
