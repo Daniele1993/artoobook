@@ -113,7 +113,7 @@ $(document).ready(function(){
 
                 disegna();
 
-                $("#cercanome").click(function(){
+                $("#cercanome").click(function(){    //SERVE PER FARE UNA RICERCA PER NOME 
                     var nome = $("#inputricerca").val();
                     Users.cercaUsers(nome)
                         .then(function (data){
