@@ -51,13 +51,25 @@ var Users = (function(){
             });
         }
         
+    
+        var cercaUsers = function(nome){
+            
+            return $.ajax({
+                url:"http://localhost:3000/users/cerca/?nome=" + nome,
+                method:"GET",
+                contentType:"application/json", // DESCRIVE IL CONTENUTO DEL FILE
+                 dataType:"json", //DESCRIVE IL TIPO DEL FILE
+
+            });
+        }
+
         return{ // QUESTO RETURN VA SEMPRE ALLA FINE 
         getUsers : getUsers,
         createUser : createUser,
         detailUser : detailUser,
         deleteUser : deleteUser,
         updateUser : updateUser,
-       
+        cercaUsers : cercaUsers,
     
         }
 })();

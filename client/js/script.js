@@ -111,6 +111,17 @@ $(document).ready(function(){
     });
 }
 
-    disegna();
+                disegna();
+
+                $("#cercanome").click(function(){
+                    var nome = $("#inputricerca").val();
+                    Users.cercaUsers(nome)
+                        .then(function (data){
+                        console.log(data);
+                        $("#risultato").html("ho trovato" +data.length+ "persone di nome" +nome)
+            })           .catch(function (err){
+                        console.log(err);
+        });
+    });
 
 });
